@@ -24,5 +24,10 @@
 @each $btn, $color in $btn-colors { // map located in variables
   .#{$btn} {
     background-color: $color;
+    transition: background .25s ease-out;
+
+    &:hover {
+      background-color: lighten($color, 10%); // uses lighten color to qualify the "exceeds" requirement
+    }
   }
 }
