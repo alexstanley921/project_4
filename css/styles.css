@@ -379,11 +379,6 @@ a {
       display: block;
       max-width: 1400px; } }
 
-@media (min-width: 768px) {
-  .centered {
-    margin: 0 auto 0 auto;
-    display: block; } }
-
 .row {
   display: flex;
   flex-direction: column;
@@ -460,6 +455,14 @@ a {
   background-color: #51ddfc; }
 .theme.col-12 {
   background-color: #80e8d1; }
+
+.centered {
+  text-align: center; }
+  @media (min-width: 768px) {
+    .centered {
+      margin-left: auto;
+      margin-right: auto;
+      display: block; } }
 
 /* ============================================= */
 /*              Forms                            */

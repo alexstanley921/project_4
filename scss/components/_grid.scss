@@ -11,14 +11,6 @@
   }
 }
 
-.centered {
-
-  @include mq { // Start of Media Query
-    @include spacing-system($ml: auto, $mr: auto);
-    @include img-system;
-  }
-}
-
 .row {
   @include flex-system($direction: column) {
 
@@ -59,4 +51,13 @@
 
 .theme.col {
   @include painter-system($color-list: $theme-colors, $item-tally: 12);
+}
+
+.centered {
+  text-align: center;
+  @include mq { // Start of Media Query
+    margin-left: auto;
+    margin-right: auto;
+    @include img-system;
+  }
 }
