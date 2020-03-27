@@ -1,0 +1,88 @@
+// /* ============================================= */
+// /*              Media Queries                    */
+// /* ============================================= */
+//
+@mixin mq($device: $desktop) {
+  @media (min-width: $device) {
+    @content;
+  }
+}
+
+// /* ============================================= */
+// /*              Typography                       */
+// /* ============================================= */
+
+// I normally would not write a mixin like this. It's not so much a short-cut but a re-route. I was merely seeing just how far I could take it with arguments :-)
+
+@mixin text($size: null, $height: null, //size
+           $color: null, $weight: null, $style: null, $decoration: null, //styles
+           $border: null, $border-l: null, $radius: null, //border
+          $margin: null, $padding: null) { //spacing
+  //font-size
+  font-size: $size;
+  line-height: $height;
+  //font-styles
+  color: $color;
+  font-weight: $weight;
+  font-style: $style;
+  text-decoration: $decoration;
+  //font-border
+  border: $border;
+  border-left: $border-l;
+  border-radius: $radius;
+  //font-spacing
+  margin: $margin;
+  padding: $padding;
+}
+
+// /* ============================================= */
+// /*              Grid-System                      */
+// /* ============================================= */
+
+@mixin painter-system($color-list, $item-tally: 1) {
+  @for $i from 1 through $item-tally {
+    &-#{$i} {
+      background-color: nth($color-list, $i);
+    }
+  }
+}
+
+@mixin col-system($item-tally: 1) {
+  @for $i from 1 through $item-tally { // loops for # of items
+    &-#{$i} {
+      flex-basis: ((100 / $item-tally) * $i) * 1%; // as percentage of total to the magnitude of column number i.e. Col-1 = 8.3%, Col-2 = (8.3% * 2) . . . et cetera
+    }
+  }
+}
+
+@mixin flex-system($display: flex, $direction: null, $wrap: null, $basis: null) {
+  display: $display;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  flex-basis: $basis;
+  @content;
+}
+
+@mixin spacing-system($margin: null, $mt: 0, $mr: 0, $mb: 0, $ml: 0, // margin values
+                      $padding: null, $pt: 0, $pr: 0, $pb: 0, $pl: 0) { // padding values
+  @if $margin != null { // checks if there's a value in margin
+    margin: $margin; // outputs margin in this format
+  } @else if ($mt + $mr + $mb + $ml) != 0 { // checks to see if there's a value other than default
+    margin: $mt $mr $mb $ml; // outputs margin in this format
+  }
+
+  @if $padding != null { // does the same thing as above, except for padding
+    padding: $padding;
+  } @else if ($pt + $pr + $pb + $pl) != 0 {
+    padding: $pt $pr $pb $pl;
+  }
+} // Is this simple padding mixin over-engineered? Yes! Absolutely. But why not
+
+// /* ============================================= */
+// /*              Images                           */
+// /* ============================================= */
+@mixin img-system($display: block, $max-w: null, $max-h: null) {
+  display: $display;
+  max-width: $max-w;
+  max-height: $max-h;
+}

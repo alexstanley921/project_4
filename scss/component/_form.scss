@@ -1,0 +1,25 @@
+/* ============================================= */
+/*              Forms                            */
+/* ============================================= */
+
+// I would nest more items for the sake of the assignment, but there's really no point in nesting classes specific to certain elements, so I haven't :-/
+.form {
+  flex-basis: 100%;
+}
+
+.input {
+  @include spacing-system($padding: 10px, $margin: 10px auto 0);
+  display: block;
+  width: 94%;
+  border: none;
+  border-bottom: 5px solid $prime-color;
+}
+
+.hidden {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}

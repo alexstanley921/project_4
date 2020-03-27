@@ -1,0 +1,33 @@
+/* ============================================= */
+/*              Navigation                       */
+/* ============================================= */
+
+.nav {
+  @include flex-system($direction: column, $basis: 100%) {
+    @include mq { // start of media query for .nav inside flex-system mixin, since only flex-rules changed
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  };
+  padding-left: 0;
+  &-link {
+    @include spacing-system($padding: 10px 0);
+    text-align: center;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    transition:
+      background-color .2s ease-in-out,
+      color .2s ease-in-out;
+
+    @include mq { // start of media query for .nav-link
+      flex-basis: 100px;
+    }
+  }
+
+  &-link:hover {
+    color: $mute-link-color;
+    background-color: $prime-color;
+  }
+}

@@ -1,0 +1,21 @@
+/* ============================================= */
+/*              Images                           */
+/* ============================================= */
+
+.img-avatar {
+  @include spacing-system($ml: auto, $mr: auto, $mt: 10px);
+  @include img-system($max-w: 100%, $max-h: 100%);
+}
+
+.img-frame {
+  @include spacing-system($ml: auto, $mr: auto, $mt: 10px, $padding: 13px);
+  @include img-system($max-w: 100%);
+  border: 1px solid $mute-border-color;
+}
+
+.logo {
+  @include mq {
+    margin-left: initial;
+    margin-right: initial;
+  }
+}

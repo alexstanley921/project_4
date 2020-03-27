@@ -1,0 +1,28 @@
+/* ============================================= */
+/*              Buttons                          */
+/* ============================================= */
+
+.btn {
+  @include spacing-system($mt: 15px, $padding: 10px 0);
+  width: 100%;
+  color: $mute-link-color;
+  border: none;
+  text-transform: uppercase;
+  border-radius: 5px;
+
+  @include mq {
+    @include spacing-system($padding: 10px 30px);
+  }
+
+  & + & { // selects a button that succeeds a button
+    @include mq { // media query begins
+      @include spacing-system($mt: 15px, $ml: 10px);
+    }
+  }
+}
+
+@each $btn, $color in $btn-colors { // map located in variables
+  .#{$btn} {
+    background-color: $color;
+  }
+}
